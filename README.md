@@ -1,8 +1,8 @@
 # 🌌 Planetarium API
 
-REST API для системы бронирования билетов на астрономические шоу в планетарии.
+A REST API for a ticket booking system for astronomical shows in a planetarium.
 
-## 📦 Стек технологий
+## 📦 Tech Stack
 
 - Python 3.12
 - Django 5.2
@@ -11,20 +11,51 @@ REST API для системы бронирования билетов на ас
 - Docker / Docker Compose
 
 
-## 🚀 Возможности
+## 🚀 Features
 
-- Управление куполами (Planetarium Domes)
-- Создание и просмотр астрономических шоу
-- Темы шоу (Show Themes)
-- Создание расписания шоу (Show Sessions)
-- Бронирование билетов (Reservations)
-- Просмотр свободных мест на сеанс
-- Аутентификация через JWT
+- Management of planetarium domes
+- Creating and viewing astronomy shows
+- Show themes
+- Creating show schedules (sessions)
+- Booking tickets (Reservations)
+- Viewing available seats for sessions
+- JWT authentication
 
-## 🔧 Установка и запуск
+## 🔧 Installation and Launch (without Docker)
 
-### 1. Клонировать репозиторий:
+### 1. Clone the repository:
 
 ```bash
 git clone https://github.com/urbanastronaut88/planetarium-api.git
 cd planetarium-api
+```
+
+### 2. Create a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
+```
+
+### 3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Apply migrations:
+```bash
+python manage.py migrate
+```
+
+### 5.Run the development server:
+```bash
+python manage.py runserver
+```
+The API will be available at:
+http://127.0.0.1:8000/
+
+## 🐳 Run with Docker
+
+### If you prefer to run the project in containers:
+```bash
+docker-compose up --build
+```
