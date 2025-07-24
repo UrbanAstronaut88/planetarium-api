@@ -46,19 +46,19 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
         session = self.get_object()
         dome = session.planetarium_dome
 
-        # в с е   в о з м о ж н ы е   м е с т а
+        # all seats
         all_seats = set(
             (row, seat)
             for row in range(1, dome.rows + 1)
             for seat in range(1, dome.seats_in_row + 1)
         )
 
-        # з а н я т ы е   м е с т а   п о   б и л е т а м
+        # taken seats by tickets
         taken_seats = set(
             session.tickets.values_list("row", "seat")
         )
 
-        # с в о б о д н ы е  -  э т о   р а з н о с т ь
+        # available seats
         available = sorted(list(all_seats - taken_seats))
 
         return Response({
