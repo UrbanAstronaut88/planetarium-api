@@ -59,3 +59,8 @@ http://127.0.0.1:8000/
 ```bash
 docker-compose up --build
 ```
+
+#### Tests:
+```bash
+manage.py test planetarium.tests.test_views
+```
