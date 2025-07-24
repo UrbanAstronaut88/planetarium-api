@@ -11,7 +11,7 @@ class PlanetariumDomeSerializer(serializers.ModelSerializer):
 class ShowThemeSerializer(serializers.ModelSerializer):
     class Meta:
         model = ShowTheme
-        fields = "__all__"
+        fields = ["id", "name"]
 
 
 class AstronomyShowSerializer(serializers.ModelSerializer):
@@ -36,6 +36,7 @@ class TicketSerializer(serializers.ModelSerializer):
 
 class ReservationSerializer(serializers.ModelSerializer):
     tickets = TicketSerializer(many=True, read_only=True)
+    user = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         model = Reservation
